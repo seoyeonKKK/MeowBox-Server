@@ -36,8 +36,8 @@ router.get('/', async (req, res, next) => {
    result.catinfo = (selectCatResult.length === 0) ? "-1" : selectCatResult[0].cat_name;                              // 고양이 유무
     let selectOrderQuery = `
               select orders.product, COUNT(*) as product_cnt , reservations.* 
-              from orders right join reservations ON  orders.idx = reservations.order_idx
               WHERE orders.user_idx = ?
+              from orders right join reservations ON  orders.idx = reservations.order_idx
               GROUP BY(product)
               order by reservations.order_idx desc;
           `;

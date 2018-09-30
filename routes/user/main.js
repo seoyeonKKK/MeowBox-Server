@@ -112,14 +112,14 @@ router.post('/signup', async (req, res, next) => {
             VALUES(?,?,?,?,?);
             `;
             
-        let userResult = await db.Query(insertQuery, [email, pwd, name, phone_number, 'https://s3.ap-northeast-2.amazonaws.com/goodgid-s3/meow_box_logo.jpeg']);
+        let userResult = await db.Query(insertQuery, [email, pwd, name, phone_number, 'https://s3.ap-northeast-2.amazonaws.com/mybucketsykkk/KakaoTalk_20180930_133851902.png']);
         result.token = jwt.sign(email, userResult.insertId);
 
         result.flag = "-1" ;
         result.email = email;
         result.name = name;
         result.phone_number = phone_number;
-        result.image_profile = 'https://s3.ap-northeast-2.amazonaws.com/goodgid-s3/meow_box_logo.jpeg';
+        result.image_profile = 'https://s3.ap-northeast-2.amazonaws.com/mybucketsykkk/KakaoTalk_20180930_133851902.png';
         result.cat_idx = "-1";
 
     } catch (error) {
